@@ -1,0 +1,620 @@
+/* Main layout container */
+html,body {
+    margin: 0;
+    padding: 50px;
+    height: 100%;
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f6e8c3; /* Light beige background */
+}
+
+/* Sidebar styling  --------------------------------------------------------------------------------- */
+.sidebar {
+    background-color: #f6e8c3;    /* Background color of sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* MISC ---------------------------------------------------------------------------------------------- */
+p {
+    margin: 5px 0 20px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+p.none {
+    margin: 0px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+h2 {
+    margin: 20px 0 0 0;
+    font-size: 2.5em;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Hide the description on certain pages */
+.description {
+    visibility: hidden; /* This will hide the text without affecting layout */
+}
+
+.col-md-3 {
+    height: 100%;
+    width: 50vh;
+}
+
+.container-fluid-phone {
+    display: none; /* Hidden by default */
+}
+
+.navlinks-phone {
+    display: none;
+}
+
+/* Nav links styling -------------------------------------------------------------------------------- */
+.nav-links1 {
+    display: none;
+    overflow: hidden;
+}
+
+.nav-links {
+    margin-top: 20px;           /* Adjust to keep consistent spacing */
+    width: 100%;                /* Make nav-links take up full width of sidebar */
+}
+
+.nav-links a {
+    display: block;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 5px;
+    font-size: 1.2em;
+}
+
+/* Link hovering styling */
+a:hover {
+    color: grey;
+}
+
+
+/* Image stuff --------------------------------------------------------------------------------------- */
+
+.limitvert img {
+    max-width: 85%;
+    height: auto;    
+}
+
+.limithorz img {
+    max-width: 100%;
+    height:auto;
+}
+
+figure {
+    display: inline-block; /* Keeps the figure element inline with other content */
+    text-align: left;    /* Centers the caption below the image */
+    margin: 20px 0;        /* Adds space around the figure */
+}
+
+/* Caption styling */
+figcaption {
+    font-size: 0.9em;       /* Adjust font size as desired */
+    color: #555;            /* Set caption color */
+    margin-top: 2px;        /* Space between image and caption */
+    text-align: left;       /* Aligns text within the caption to the left */
+}
+
+
+/* MENU with dropdown stuff ------------------------------------------------------------------------- */
+    .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+
+    .menu > li {
+    position: relative;
+    }
+
+    .menu > li > a {
+    display: block;
+    padding: 3px;
+    text-align: left;
+    text-decoration: none;
+    }
+
+    .menu ul {
+        height: 0;
+        left: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        transition: all 1s ease;
+        width: 100%;
+        padding: 0;
+        list-style: none;
+    }
+
+    .menu li:hover ul {
+        height: auto; /* Allows the dropdown to adjust its height based on content */
+        opacity: 1;
+        transition: opacity 0.7s ease-in-out;
+    }
+
+    .menu ul a {
+    display: block;
+    font-size: 0.9em;
+    padding: 3px 15px;
+    text-decoration: none;
+    }
+
+
+    .menu-toggle {
+        display: none;
+    }
+/* Gallery --------------------------------------------------------------------------------------------- */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+    height: 70vh;
+    text-align: center;
+}
+
+.slider-image img {
+    height: 65vh;
+    max-width: 100%;
+    margin: auto;
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.5s ease-in; /* Smooth fade effect */
+}
+
+.slider-image img.visible {
+    opacity: 1; /* Fully visible */
+}
+
+/* thumbnail ------------------------------------------------------------------------------------------ */
+
+.thumbnails-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.thumbnails-wrapper {
+    overflow: hidden;
+    top: 50%;
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to align center */
+    width: 107.75%;
+    position: relative;
+}
+
+
+.thumbnails {
+    display: flex;
+    margin-top: 2vh;
+    gap: 0;
+    height: 10vh;
+    justify-content: left;
+    transition: transform 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transform: translateX(0);
+}
+
+.thumbnails img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    border: none;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.thumbnails img.active {
+    opacity: 1; /* Full opacity for the active thumbnail */
+}
+
+.thumbnails img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+    border-color: #333;
+}
+
+
+/* Arrows  --------------------------------------------------------------------------------------------- */
+
+.arrow {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 40px;
+    border-radius: 10%;
+    cursor: pointer;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+}
+
+.arrow.left {
+    left: -33px;
+}
+
+.arrow.right {
+    right: -33px;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Phone ---------------------------------------------------------------------------------------------------
+
+/* Media Query for Mobile Devices */
+@media only screen and (width < 932px) {
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: auto; /* Allow the height to adjust based on content */
+        max-width: 100vw;
+        overflow-x: hidden;
+        position: relative;
+        font-family: 'Open Sans', sans-serif;
+        background-color: #f6e8c3; /* Light beige background */
+    }
+
+/* Take out PC settings ----------------------------------------------------------------------------------- */
+    .col-md-3 {
+        display: none
+    }
+
+    .col-4 {
+        display: none;
+    }
+
+    .col-6 {
+        display: none;
+    }
+
+    .row {
+        display: none;
+    }
+
+    .container-fluid {
+        display: none;
+    }
+
+/* Define new columns ------------------------------------------------------------------------------ */
+
+    .container-fluid-phone {
+        display: block;
+        width: 100%;
+        height: 120vh;
+        overflow-y: hidden;
+    }
+
+    [class*="col-"] {
+        width: 100%;
+    }
+
+    .col-md {
+        width: 100%;
+        height: 15%;
+        display: flex;
+    }
+
+    .limitvert-phone {
+        width: 80%;
+        margin: auto;
+        margin-top: 20%;
+    }
+
+    .limithorz-phone {
+        width: 85%;
+        margin: auto;
+        margin-top: 20%;
+    }
+
+    .slider-image img {
+        display: none;
+    }
+
+    .slider-image-phone {
+        position: relative;
+        display: flex;
+        max-width: 95%;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slider-image-phone img {
+        display: block;
+        max-width: 100%;
+        max-height: 30vh;
+        object-fit: contain;
+        margin: auto;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .slider-image-phone img.visible {
+        opacity: 1; /* Fully visible */
+    }
+
+    .container-phone {
+        width: 100%;
+        height: 70vh;
+        margin-top: 30%;
+        text-align: center;
+    }
+
+
+/* Phone sidebar ----------------------------------------------------------------------------------- */
+    .sidebar-phone {
+        background-color: #f6e8c3;    /* Background color of sidebar */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 15%;
+        padding-top: 15%;
+        width: 60%;
+    }
+    
+
+    h2 {
+        font-weight: 700;
+        font-size: 1.7em; /* Smaller headings for mobile */
+    }
+
+    p {
+        font-size: 1em; /* Adjust paragraph text size */
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    p1 {
+        font-size: 0.8em;
+    }
+/* Navigational links ------------------------------------------------------------------------------ */
+    .navlinks-phone {
+        width: 40%;
+        display: block;
+        text-align: left;
+        padding-top: 17%;
+    }
+
+    .nav-links {
+        display: none;
+        overflow: hidden;
+    }
+
+    nav {
+        display: flex;
+        width: 50%;
+    }
+
+    #menu {
+        position: absolute;
+        top: -350%;
+        right: -165%;
+        text-align: left;
+        width: 250px; /* Define menu width */
+        height: 100vh; /* Full height for the menu */
+        padding-left: 3vh;
+        -webkit-font-smoothing: antialiased;
+        transform: translateX(100%); /* Completely hide off-screen */
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        z-index: 0; /* Ensure it appears above other content */
+        list-style: none;
+        background-color: rgba(255,250,240,0.9);
+    }
+    
+    /* Slide the menu into view */
+    #menuToggle input:checked ~ ul {
+        transform: translateX(15%); /* Slide in to the left */
+    }
+    
+    #menuToggle {
+        display: flex;
+        flex-direction: column;
+        position: absolute; /* Ensure it stays in a fixed position */
+        top: 9vh; /* Adjust distance from the top */
+        right: 12.5%; /* Adjust distance from the right */
+        z-index: 2; /* Ensure it appears above the menu */
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    #menuToggle input {
+        display: flex;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 3;
+    }
+    
+    #menuToggle span {
+        display: flex;
+        width: 35px;
+        height: 3px;
+        margin-bottom: 5px;
+        position: relative;
+        background: black; /* Darker for better visibility */
+        border-radius: 4px;
+        z-index: 4;
+        transform-origin: 5px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+                    opacity 0.55s ease;
+    }
+    
+    /* Opened Hamburger Menu (Transforms to "X") */
+    #menuToggle input:checked ~ span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-3px, -1px);
+        background: #36383F; /* Ensure it's still visible */
+    }
+    
+    #menuToggle input:checked ~ span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+    
+    #menuToggle input:checked ~ span:nth-last-child(2) {
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    .fillerbox {
+        height: 15%;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    #menu li {
+        margin-bottom: 2.5%; /* Increase spacing between menu items */
+        padding-left: 0%;
+        margin-left: 0;
+    }
+
+    #menu li ul {
+        margin-top: 2%; /* Add space between parent (Gallery) and the submenu */
+        padding-left: 5%; /* Optional: Indent submenu items */
+        line-height: 120%;
+    }
+
+    .submenu {
+        list-style: none;
+        max-height: 0; /* Collapse submenu */
+        overflow: hidden; /* Hide content beyond the max-height */
+        opacity: 0; /* Invisible when collapsed */
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth animation for height and opacity */
+        margin-top: 10px; /* Space between Gallery and submenu when visible */
+        padding-left: 20px; /* Indentation for submenu items */
+    }
+
+
+/* Thumbnails ---------------------------------------------------------------------------------- */
+
+
+    .thumbnails-containerphone {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .thumbnails-wrapperphone {
+        overflow: hidden;
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Adjust to align center */
+        width: 90%;
+        position: relative;
+    }
+
+
+    .thumbnailsphone {
+        display: flex;
+        margin-top: 12vh;
+        gap: 0;
+        height: 10vh;
+        justify-content: left;
+        transition: transform 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+        transform: translateX(0);
+    }
+
+    .thumbnailsphone img {
+        display: block;
+        width: 35vw;
+        max-width: 40vw;
+        height: auto;
+        object-fit: cover;
+        cursor: pointer;
+        border: none;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+    }
+
+    .thumbnailsphone img.active {
+        opacity: 1; /* Full opacity for the active thumbnail */
+    }
+
+    .thumbnailsphone img:hover {
+        opacity: 0.9;
+        border-color: #333;
+    }
+
+
+/* Arrows ------------------------------------------------------------------------------------------- */
+
+    .arrow-phone {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white;
+        border: none;
+        width: 20px;
+        height: 30px;
+        border-radius: 10%;
+        cursor: pointer;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+    }
+
+    .arrow-phone.left {
+        left: 0vw;
+    }
+
+    .arrow-phone.right {
+        right: 0vw;
+    }
+
+    .arrow-phone:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    .thumbnails-container {
+        display: none;
+    }
+    
+    .thumbnails-wrapper {
+        display: none;
+    }
+    
+    
+    .thumbnails {
+        display: none;
+    }
+    
+    .thumbnails img {
+        display: none;
+    }
+
+}
